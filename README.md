@@ -1,6 +1,7 @@
 # HttpPing
 
 HTTP/HTTPS 响应监控工具，参考 [vmPing](https://github.com/r-smith/vmPing) 设计。用于实时监控多个 Web 服务的可用性和响应时间。
+<img width="1099" height="705" alt="{6D7C831D-D377-471F-AFB4-854C4F957A86}" src="https://github.com/user-attachments/assets/293af452-e22e-4d07-ae64-d037bcdbd3f9" />
 
 ## 功能特性
 
