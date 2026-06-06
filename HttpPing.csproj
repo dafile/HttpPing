@@ -9,4 +9,7 @@
     <Nullable>disable</Nullable>
     <ApplicationIcon>location_http_14327.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="location_http_14327.ico"/>
+  </ItemGroup>
 </Project>

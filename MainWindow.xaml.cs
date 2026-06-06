@@ -64,11 +64,20 @@ namespace HttpPing
 
             try
             {
-                var exePath = System.IO.Path.Combine(AppContext.BaseDirectory, "HttpPing.exe");
-                if (System.IO.File.Exists(exePath))
-                    _notifyIcon.Icon = System.Drawing.Icon.ExtractAssociatedIcon(exePath);
+                // Load icon from WPF resource, convert to byte[] then to System.Drawing.Icon
+                var iconUri = new Uri("pack://application:,,,/location_http_14327.ico", UriKind.Absolute);
+                var resourceStream = System.Windows.Application.GetResourceStream(iconUri);
+                if (resourceStream != null)
+                {
+                    using var ms = new System.IO.MemoryStream();
+                    resourceStream.Stream.CopyTo(ms);
+                    ms.Position = 0;
+                    _notifyIcon.Icon = new System.Drawing.Icon(ms);
+                }
                 else
+                {
                     _notifyIcon.Icon = System.Drawing.SystemIcons.Application;
+                }
             }
             catch
             {
