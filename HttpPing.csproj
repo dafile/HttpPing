@@ -8,6 +8,10 @@
     <AssemblyName>HttpPing</AssemblyName>
     <Nullable>disable</Nullable>
     <ApplicationIcon>location_http_14327.ico</ApplicationIcon>
+    <Version>2026.6.6.2330</Version>
+    <AssemblyVersion>2026.6.6.2330</AssemblyVersion>
+    <FileVersion>2026.6.6.2330</FileVersion>
+    <InformationalVersion>HttpPing 2026.6.6.2330</InformationalVersion>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="location_http_14327.ico"/>
