@@ -1,0 +1,56 @@
+## .NET Core / WPF
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+
+## Visual Studio
+.vs/
+*.sln.docstates
+*.userprefs
+
+## Rider
+.idea/
+
+## OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Build Results
+[Dd]ebugPublic/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/.nuget/**
+packages/
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Publish Output
+publish/
+publish_*/
+
+## Temp files
+*_wpftmp.csproj
+*.tmp
+
+## Config files (optional - uncomment if you don't want to track config)
+# HttpPing.xml

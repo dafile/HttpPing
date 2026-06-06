@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>HttpPing</RootNamespace>
+    <AssemblyName>HttpPing</AssemblyName>
+    <Nullable>disable</Nullable>
+    <ApplicationIcon>location_http_14327.ico</ApplicationIcon>
+  </PropertyGroup>
+</Project>
