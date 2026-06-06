@@ -25,6 +25,7 @@ namespace HttpPing
         // System tray
         private NotifyIcon _notifyIcon;
         private bool _minimizeToTray;
+        private bool _isReallyClosing;
 
         // Status history window
         private StatusHistoryWindow _historyWindow;
@@ -91,6 +92,7 @@ namespace HttpPing
             trayMenu.Items.Add(new ToolStripSeparator());
             trayMenu.Items.Add("退出", null, (s, e) =>
             {
+                _isReallyClosing = true;
                 _notifyIcon.Visible = false;
                 System.Windows.Application.Current.Shutdown();
             });
@@ -104,12 +106,8 @@ namespace HttpPing
 
         private void Window_StateChanged(object sender, EventArgs e)
         {
-            if (WindowState == WindowState.Minimized && _minimizeToTray)
-            {
-                Hide();
-                _notifyIcon.Visible = true;
-                _notifyIcon.ShowBalloonTip(2000, "HttpPing", "程序已最小化到系统托盘", ToolTipIcon.Info);
-            }
+            // Minimize button goes to taskbar normally (no tray)
+            // Tray only used when closing with minimize-to-tray enabled
         }
 
         private void RestoreFromTray()
@@ -418,6 +416,16 @@ namespace HttpPing
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            // If minimize-to-tray is enabled and user clicked X, minimize instead of close
+            if (_minimizeToTray && !_isReallyClosing)
+            {
+                e.Cancel = true;
+                WindowState = WindowState.Minimized;
+                Hide();
+                _notifyIcon.Visible = true;
+                return;
+            }
+
             _config.Settings.IntervalSeconds = _intervalSeconds;
             _config.Settings.TimeoutSeconds = _timeoutSeconds;
             _config.Settings.ColumnCount = _columnCount;
